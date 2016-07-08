@@ -33,7 +33,7 @@ private:
     int numOptions = 2;
     std::string optionText[2] = {"Attack", "Do Nothing"};
     Text *options = new Text[2];
-    int current;
+    int current = 0;
     void attack(PartyMember* attacker, Enemy* target);
     void doNothing();
 };

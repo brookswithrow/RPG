@@ -18,18 +18,18 @@
 class Text {
 public:
     Text();
-    Text(std::string string, SDL_Color aColor, TTF_Font* aFont, SDL_Renderer* aRenderer, int aX, int aY);
+    Text(std::string string, SDL_Color aColor, SDL_Renderer* aRenderer, int aX, int aY);
     void render();
     void updateText(std::string newString);
     void updateColor(SDL_Color aColor);
     void updatePosition(int aX, int aY);
+
 private:
-    void init();
     void update();
     void makeTexture();
     std::string text;
     SDL_Color color;
-    TTF_Font* font;
+    TTF_Font* font = TTF_OpenFont("lazy.ttf", 14);
     SDL_Surface* textSurface;
     SDL_Texture* texture;
     SDL_Renderer* renderer;

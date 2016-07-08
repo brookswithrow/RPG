@@ -13,9 +13,8 @@ Text::Text() {
     
 }
 
-Text::Text(std::string string, SDL_Color aColor, TTF_Font* aFont, SDL_Renderer* aRenderer, int aX, int aY) {
+Text::Text(std::string string, SDL_Color aColor, SDL_Renderer* aRenderer, int aX, int aY) {
     text = string;
-    font = aFont;
     color = aColor;
     renderer = aRenderer;
     x = aX;

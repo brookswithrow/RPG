@@ -9,7 +9,18 @@
 #include <stdio.h>
 #include "PartyMember.h"
 
-PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, int* aAffinities) {
+PartyMember::PartyMember() {
+    name = "";
+    maxHP = 0;
+    hp = 0;
+    maxSP = 0;
+    sp = 0;
+    numAttacks = 0;
+    attacks = NULL;
+    affinities = NULL;
+}
+
+PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, float* aAffinities) {
     name = aName;
     maxHP = aMaxHP;
     hp = aMaxHP;
@@ -48,7 +59,7 @@ Attack* PartyMember::getAttacks() {
     return attacks;
 }
 
-int PartyMember::getAffinity(Type type) {
+float PartyMember::getAffinity(Type type) {
     int index = (int)type;
     return affinities[index];
 }

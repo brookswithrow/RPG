@@ -13,7 +13,8 @@
 
 class PartyMember {
 public:
-    PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, int* aAffinities);
+    PartyMember();
+    PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, float* aAffinities);
     std::string getName();
     int getHP();
     int getMaxHP();
@@ -21,7 +22,7 @@ public:
     int getMaxSP();
     int getNumAttacks();
     Attack* getAttacks();
-    int getAffinity(Type type);
+    float getAffinity(Type type);
     bool isDead();
     void takeDamage(Attack* attack);
     void heal(int health);
@@ -34,7 +35,7 @@ private:
     int maxSP;
     int numAttacks;
     Attack* attacks;
-    int* affinities;
+    float* affinities;
     bool dead;
 };
 

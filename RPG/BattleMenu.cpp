@@ -12,12 +12,11 @@ void BattleMenu::init(SDL_Renderer *aRenderer) {
     renderer = aRenderer;
     SDL_Color black = {0, 0, 0};
     SDL_Color red = {255, 0, 0};
-    TTF_Font *font = TTF_OpenFont("lazy.ttf", 28);
     for (int i = 0; i < numOptions; i++) {
         options[i] = Text();
-        SDL_Color color = i == current ? black : red;
+        SDL_Color color = i == current ? red : black;
         std::string optiontext = optionText[i];
-        Text text = Text::Text(optiontext, color, font, renderer, 50, 50*(i+1));
+        Text text = Text::Text(optiontext, color, renderer, 50, 50*(i+1));
         options[i] = text;
     }
 }
@@ -54,7 +53,7 @@ void BattleMenu::select(PartyMember* actor, Enemy* target) {
 
 void BattleMenu::attack(PartyMember* attacker, Enemy* target) {
     Attack* attack = attacker->getAttacks();
-    target->takeDamage(attack);
+    target->takeDamage(attack[0]);
 }
 
 void BattleMenu::doNothing() {

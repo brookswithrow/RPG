@@ -21,6 +21,9 @@ public:
     void update();
     SDL_Window* window;
     SDL_Renderer* renderer;
+private:
+    int width = 800;
+    int height = 600;
 };
 
 

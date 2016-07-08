@@ -13,15 +13,15 @@
 
 class Enemy {
 public:
-    Enemy(std::string aName, int aMaxHP, int aNumAttacks, Attack* aAttacks, int* aAffinities);
+    Enemy(std::string aName, int aMaxHP, int aNumAttacks, Attack* aAttacks, float* aAffinities);
     std::string getName();
     int getHP();
     int getMaxHP();
     int getNumAttacks();
     Attack* getAttacks();
-    int getAffinity(Type type);
+    float getAffinity(Type type);
     bool isDead();
-    void takeDamage(Attack* attack);
+    void takeDamage(Attack attack);
     void heal(int health);
     
 private:
@@ -30,7 +30,7 @@ private:
     int hp;
     int numAttacks;
     Attack* attacks;
-    int* affinities;
+    float* affinities;
     bool dead;
 };
 

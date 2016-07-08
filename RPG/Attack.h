@@ -13,6 +13,7 @@
 
 class Attack {
 public:
+    Attack();
     Attack(std::string aName, int aDamage, Type aType);
     std::string getName();
     int getDamage();

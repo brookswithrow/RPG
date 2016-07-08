@@ -10,6 +10,7 @@
 #define Types_h
 
 enum Type {
+    null = -1,
     pierce = 0,
     slash = 1,
     crush = 2,

@@ -9,6 +9,12 @@
 #include <stdio.h>
 #include "Attack.h"
 
+Attack::Attack() {
+    name = "";
+    damage = 0;
+    type = null;
+}
+
 Attack::Attack(std::string aName, int aDamage, Type aType) {
     name = aName;
     damage = aDamage;

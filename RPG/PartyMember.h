@@ -9,19 +9,20 @@
 #ifndef PartyMember_h
 #define PartyMember_h
 #include <string>
+#include <vector>
 #include "Attack.h"
 
 class PartyMember {
 public:
     PartyMember();
-    PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, float* aAffinities);
+    PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities);
     std::string getName();
     int getHP();
     int getMaxHP();
     int getSP();
     int getMaxSP();
     int getNumAttacks();
-    Attack* getAttacks();
+    std::vector<Attack> getAttacks();
     float getAffinity(Type type);
     bool isDead();
     void takeDamage(Attack* attack);
@@ -34,8 +35,8 @@ private:
     int sp;
     int maxSP;
     int numAttacks;
-    Attack* attacks;
-    float* affinities;
+    std::vector<Attack> attacks;
+    std::vector<float> affinities;
     bool dead;
 };
 

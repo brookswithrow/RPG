@@ -8,23 +8,42 @@
 
 #include "BattleMenu.h"
 
-void BattleMenu::init(SDL_Renderer *aRenderer) {
+BattleMenu::BattleMenu() {
+    
+}
+
+BattleMenu::BattleMenu(BattleInfo* aInfo, SDL_Renderer* aRenderer) {
+    init(aInfo, aRenderer);
+}
+
+void BattleMenu::init(BattleInfo* aInfo, SDL_Renderer* aRenderer) {
+    info = aInfo;
     renderer = aRenderer;
+    init();
+}
+
+void BattleMenu::init() {
+    int (*func)(BattleInfo *, int);
+    func = &BattleMenu::returnPos;
+    MenuOption attack = MenuOption("Attack", 0, func, renderer);
+    MenuOption doNothing = MenuOption("Do Nothing", 1, func, renderer);
+    options.push_back(attack);
+    options.push_back(doNothing);
+    current = 0;
     SDL_Color black = {0, 0, 0};
     SDL_Color red = {255, 0, 0};
     for (int i = 0; i < numOptions; i++) {
-        options[i] = Text();
         SDL_Color color = i == current ? red : black;
-        std::string optiontext = optionText[i];
-        Text text = Text::Text(optiontext, color, renderer, 50, 50*(i+1));
-        options[i] = text;
+        options[i].changeColor(color);
+        options[i].renderText();
     }
 }
 
 void BattleMenu::moveCursor(int direction) {
     SDL_Color black = {0, 0, 0};
     SDL_Color red = {255, 0, 0};
-    options[current].updateColor(black);
+    options[current].changeColor(black);
+    options[current].renderText();
     if (direction == -1) {
         current--;
         if (current == -1) {
@@ -36,26 +55,23 @@ void BattleMenu::moveCursor(int direction) {
             current = 0;
         }
     }
-    options[current].updateColor(red);
+    options[current].changeColor(red);
+    options[current].renderText();
 }
 
-void BattleMenu::select(PartyMember* actor, Enemy* target) {
-    switch (current) {
-        case 0:
-            attack(actor, target);
-        case 1:
-            doNothing();
+int BattleMenu::select(BattleInfo* info) {
+    if (current == 0) {
+        return true;
     }
+    return false;
+}
+
+int BattleMenu::returnPos(BattleInfo* info, int pos) {
+    return 0;
+}
+
+void BattleMenu::updateText() {
     for (int i = 0; i < numOptions; i++) {
-        options[i].render();
+        options[i].renderText();
     }
-}
-
-void BattleMenu::attack(PartyMember* attacker, Enemy* target) {
-    Attack* attack = attacker->getAttacks();
-    target->takeDamage(attack[0]);
-}
-
-void BattleMenu::doNothing() {
-    
 }

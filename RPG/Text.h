@@ -18,14 +18,15 @@
 class Text {
 public:
     Text();
+    Text(std::string string, int aX, int aY, SDL_Renderer* aRenderer);
     Text(std::string string, SDL_Color aColor, SDL_Renderer* aRenderer, int aX, int aY);
-    void render();
+    void update();
     void updateText(std::string newString);
     void updateColor(SDL_Color aColor);
     void updatePosition(int aX, int aY);
 
 private:
-    void update();
+    void render();
     void makeTexture();
     std::string text;
     SDL_Color color;

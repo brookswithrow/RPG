@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "Enemy.h"
 
-Enemy::Enemy(std::string aName, int aMaxHP, int aNumAttacks, Attack* aAttacks, float* aAffinities) {
+Enemy::Enemy(std::string aName, int aMaxHP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities) {
     name = aName;
     maxHP = aMaxHP;
     hp = aMaxHP;
@@ -34,7 +34,7 @@ int Enemy::getNumAttacks() {
     return numAttacks;
 }
 
-Attack* Enemy::getAttacks() {
+std::vector<Attack> Enemy::getAttacks() {
     return attacks;
 }
 
@@ -51,6 +51,7 @@ void Enemy::takeDamage(Attack attack) {
     int mult = getAffinity(attack.getType());
     hp -= mult * attack.getDamage();
     if (hp <= 0) {
+        hp = 0;
         dead = true;
     }
 }

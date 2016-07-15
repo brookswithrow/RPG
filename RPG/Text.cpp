@@ -13,16 +13,29 @@ Text::Text() {
     
 }
 
+Text::Text(std::string string, int aX, int aY, SDL_Renderer* aRenderer) {
+    text = string;
+    color = {0, 0, 0};
+    renderer = aRenderer;
+    x = aX;
+    y = aY;
+}
+
 Text::Text(std::string string, SDL_Color aColor, SDL_Renderer* aRenderer, int aX, int aY) {
     text = string;
     color = aColor;
     renderer = aRenderer;
     x = aX;
     y = aY;
-    update();
+}
+
+void Text::update() {
+    makeTexture();
+    render();
 }
 
 void Text::makeTexture() {
+    //font = TTF_OpenFont("lazy.ttf", 14);
     textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
     texture = SDL_CreateTextureFromSurface(renderer, textSurface);
     w = textSurface->w;
@@ -36,21 +49,16 @@ void Text::render() {
 
 void Text::updateText(std::string newString) {
     text = newString;
-    update();
+    //update();
 }
 
 void Text::updateColor(SDL_Color aColor) {
     color = aColor;
-    update();
+    //update();
 }
 
 void Text::updatePosition(int aX, int aY) {
     x = aX;
     y = aY;
-    update();
-}
-
-void Text::update() {
-    makeTexture();
-    render();
+    //update();
 }

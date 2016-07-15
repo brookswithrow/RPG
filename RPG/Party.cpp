@@ -15,29 +15,29 @@ Party::Party() {
 }
 
 void Party::initPartyMemberA() {
-    float affinities[7] = {1, 1, 1, 1, 1, 1, 1};
-    Attack *attacks = new Attack[3];
-    attacks[0] = Attack("Punch", 8, pierce);
-    attacks[1] = Attack("Fire", 12, fire);
-    attacks[2] = Attack("Sword", 14, slash);
+    std::vector<float> affinities = {1, 1, 1, 1, 1, 1, 1};
+    std::vector<Attack> attacks;
+    attacks.push_back(Attack("Punch", 2, pierce));
+    attacks.push_back(Attack("Fire", 4, fire));
+    attacks.push_back(Attack("Sword", 6, slash));
     
     A = PartyMember("DPS", 50, 40, 3, attacks, affinities);
 }
 
 void Party::initPartyMemberB() {
-    float affinities[7] = {0.5, 0.5, 0.5, 1, 1, 1, 1};
-    Attack *attacks = new Attack[2];
-    attacks[0] = Attack("Crush", 16, crush);
-    attacks[1] = Attack("Water", 8, water);
+    std::vector<float> affinities = {0.5, 0.5, 0.5, 1, 1, 1, 1};
+    std::vector<Attack> attacks;
+    attacks.push_back(Attack("Crush", 8, crush));
+    attacks.push_back(Attack("Water", 2, water));
     
     B = PartyMember("Tank", 50, 40, 2, attacks, affinities);
 }
 
 void Party::initPartyMemberC() {
-    float affinities[7] = {1.5, 1.5, 1.5, 1, 1, 1, 1};
-    Attack *attacks = new Attack[2];
-    attacks[0] = Attack("Arrow", 6, pierce);
-    attacks[1] = Attack("Lightning", 18, lightning);
+    std::vector<float> affinities = {1.5, 1.5, 1.5, 1, 1, 1, 1};
+    std::vector<Attack> attacks;
+    attacks.push_back(Attack("Arrow", 1, pierce));
+    attacks.push_back(Attack("Lightning", 9, lightning));
     
     C = PartyMember("Mage", 50, 40, 2, attacks, affinities);
 }
@@ -45,19 +45,30 @@ void Party::initPartyMemberC() {
 void Party::displayPartyStats(SDL_Renderer *renderer) {
     SDL_Color black = {0, 0, 0};
     Text healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), black, renderer, 160, 100);
-    healthA.render();
+    healthA.update();
     Text healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), black, renderer, 350, 100);
-    healthB.render();
+    healthB.update();
     Text healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
-    healthC.render();
+    healthC.update();
 }
 
-PartyMember Party::getPartyMemberA() {
-    return A;
+PartyMember* Party::getPartyMemberA() {
+    return &A;
 }
-PartyMember Party::getPartyMemberB() {
-    return B;
+PartyMember* Party::getPartyMemberB() {
+    return &B;
 }
-PartyMember Party::getPartyMemberC() {
-    return C;
+PartyMember* Party::getPartyMemberC() {
+    return &C;
+}
+PartyMember* Party::getPartyMember(int num) {
+    switch (num) {
+        case 0:
+            return &A;
+        case 1:
+            return &B;
+        case 2:
+            return &C;
+    }
+    return &A;
 }

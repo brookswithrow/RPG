@@ -16,11 +16,11 @@ PartyMember::PartyMember() {
     maxSP = 0;
     sp = 0;
     numAttacks = 0;
-    attacks = NULL;
-    affinities = NULL;
+    attacks = {};
+    affinities = {};
 }
 
-PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, Attack* aAttacks, float* aAffinities) {
+PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities) {
     name = aName;
     maxHP = aMaxHP;
     hp = aMaxHP;
@@ -55,7 +55,7 @@ int PartyMember::getNumAttacks() {
     return numAttacks;
 }
 
-Attack* PartyMember::getAttacks() {
+std::vector<Attack> PartyMember::getAttacks() {
     return attacks;
 }
 
@@ -69,7 +69,7 @@ bool PartyMember::isDead() {
 }
 
 void PartyMember::takeDamage(Attack* attack) {
-    int mult = getAffinity(attack->getType());
+    float mult = getAffinity(attack->getType());
     hp -= mult * attack->getDamage();
     if (hp <= 0) {
         dead = true;

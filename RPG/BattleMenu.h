@@ -15,26 +15,22 @@
 #include "Enemy.h"
 #include "PartyMember.h"
 #include "Attack.h"
+#include "Menu.h"
 
-enum battleOptions {
-    attack = 0,
-    nothing = 1
-};
-
-class BattleMenu {
+class BattleMenu : public Menu {
     
 public:
-    void init(SDL_Renderer *aRenderer);
+    BattleMenu();
+    BattleMenu(BattleInfo* aInfo, SDL_Renderer* aRenderer);
+    void init(BattleInfo* aInfo, SDL_Renderer* aRenderer);
+    void init();
     void moveCursor(int direction);
-    void select(PartyMember* actor, Enemy* target);
+    int select(BattleInfo *info);
+    void updateText();
     
 private:
-    SDL_Renderer *renderer;
     int numOptions = 2;
-    std::string optionText[2] = {"Attack", "Do Nothing"};
-    Text *options = new Text[2];
-    int current = 0;
-    void attack(PartyMember* attacker, Enemy* target);
+    static int returnPos(BattleInfo* info, int pos);
     void doNothing();
 };
 

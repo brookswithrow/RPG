@@ -10,6 +10,7 @@
 #define Party_h
 
 #include <stdio.h>
+#include <vector>
 #include "PartyMember.h"
 #include "Types.h"
 #include "Text.h"
@@ -21,9 +22,10 @@ public:
     void initPartyMemberB();
     void initPartyMemberC();
     void displayPartyStats(SDL_Renderer* renderer);
-    PartyMember getPartyMemberA();
-    PartyMember getPartyMemberB();
-    PartyMember getPartyMemberC();
+    PartyMember* getPartyMemberA();
+    PartyMember* getPartyMemberB();
+    PartyMember* getPartyMemberC();
+    PartyMember* getPartyMember(int num);
     
 private:
     PartyMember A;

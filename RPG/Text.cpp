@@ -62,3 +62,7 @@ void Text::updatePosition(int aX, int aY) {
     y = aY;
     //update();
 }
+
+void Text::clear() {
+    SDL_DestroyTexture(texture);
+}

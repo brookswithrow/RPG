@@ -25,4 +25,5 @@ void MenuOption::changeColor(SDL_Color color) {
 
 void MenuOption::renderText() {
     text.update();
+    text.clear();
 }

@@ -11,7 +11,7 @@
 #include <vector>
 #include "Window.h"
 #include "Text.h"
-#include "Enemy.h"
+#include "EnemyParty.h"
 #include "MenuManager.h"
 #include "Party.h"
 
@@ -19,9 +19,7 @@ int main(int argc, const char * argv[]) {
     Window window;
     window.init();
     Party party = Party();
-    std::vector<Attack> attack = {Attack("Hit", 5, pierce)};
-    std::vector<float> noaffinities = {1, 1, 1, 1, 1, 1, 1};
-    Enemy enemy = Enemy("Bad Guy", 10, 1, attack, noaffinities);
+    EnemyParty enemy = EnemyParty();
     BattleInfo info = BattleInfo(&party, &enemy);
     MenuManager menu = MenuManager(&info, &window);
     window.clear();

@@ -70,9 +70,8 @@ int AttackMenu::select(BattleInfo* info) {
 
 int AttackMenu::attack(BattleInfo* info, int pos) {
     PartyMember* current = info->getCurrentActor();
-    Enemy* target = info->getTarget();
     std::vector<Attack> attacks = current->getAttacks();
-    target->takeDamage(attacks[pos]);
+    info->setAttack(&attacks[pos]);
     return 1;
 }
 

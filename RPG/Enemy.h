@@ -14,6 +14,7 @@
 
 class Enemy {
 public:
+    Enemy();
     Enemy(std::string aName, int aMaxHP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities);
     std::string getName();
     int getHP();

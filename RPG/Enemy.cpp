@@ -9,6 +9,15 @@
 #include <stdio.h>
 #include "Enemy.h"
 
+Enemy::Enemy() {
+    name = "";
+    maxHP = 0;
+    hp = 0;
+    numAttacks = 0;
+    attacks = {};
+    affinities = {};
+}
+
 Enemy::Enemy(std::string aName, int aMaxHP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities) {
     name = aName;
     maxHP = aMaxHP;
@@ -48,7 +57,7 @@ bool Enemy::isDead() {
 }
 
 void Enemy::takeDamage(Attack attack) {
-    int mult = getAffinity(attack.getType());
+    float  mult = getAffinity(attack.getType());
     hp -= mult * attack.getDamage();
     if (hp <= 0) {
         hp = 0;

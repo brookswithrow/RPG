@@ -8,9 +8,9 @@
 
 #include "BattleInfo.h"
 
-BattleInfo::BattleInfo(Party* aParty, Enemy* aTarget) {
+BattleInfo::BattleInfo(Party* aParty, EnemyParty* aTarget) {
     party = aParty;
-    target = aTarget;
+    targets = aTarget;
     turn = 0;
     current = party->getPartyMember(turn);
 }
@@ -20,7 +20,11 @@ PartyMember* BattleInfo::getCurrentActor() {
 }
 
 Enemy* BattleInfo::getTarget() {
-    return target;
+    return targets->getEnemy(turn);
+}
+
+EnemyParty* BattleInfo::getTargets() {
+    return targets;
 }
 
 int BattleInfo::getTurn() {
@@ -30,21 +34,33 @@ int BattleInfo::getTurn() {
 void BattleInfo::nextTurn() {
     turn++;
     if (turn == 3) {
-        PartyMember* victim = party->getPartyMember(0);
-        std::vector<Attack> attacks = target->getAttacks();
-        victim->takeDamage(&attacks[0]);
+        for (int i = 0; i < 3; i ++) {
+            PartyMember* victim = party->getPartyMember(i);
+            std::vector<Attack> attacks = targets->getEnemy(i)->getAttacks();
+            victim->takeDamage(&attacks[0]);
+        }
         turn = 0;
     }
     current = party->getPartyMember(turn);
 }
 
 bool BattleInfo::victory() {
-    return target->isDead();
+    return targets->isDead();
 }
 
-void BattleInfo::updateText(SDL_Renderer* renderer) {
+void BattleInfo::updateAllText(SDL_Renderer* renderer) {
     party->displayPartyStats(renderer);
-    SDL_Color color = {0, 0, 0};
-    Text enemyHealth = Text::Text("Enemy health: " + std::to_string(target->getHP()), color, renderer, 320, 250);
-    enemyHealth.update();
+    targets->displayPartyStats(renderer);
+}
+
+void BattleInfo::updatePartyText(SDL_Renderer* renderer) {
+    party->displayPartyStats(renderer);
+}
+
+void BattleInfo::setAttack(Attack* anAttack) {
+    attack = anAttack;
+}
+
+Attack* BattleInfo::getAttack() {
+    return attack;
 }

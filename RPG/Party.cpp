@@ -50,6 +50,9 @@ void Party::displayPartyStats(SDL_Renderer *renderer) {
     healthB.update();
     Text healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
     healthC.update();
+    healthA.clear();
+    healthB.clear();
+    healthC.clear();
 }
 
 PartyMember* Party::getPartyMemberA() {

@@ -15,21 +15,27 @@
 #include "Party.h"
 #include "PartyMember.h"
 #include "Enemy.h"
+#include "EnemyParty.h"
 
 class BattleInfo {
 public:
-    BattleInfo(Party* aParty, Enemy* aTarget);
+    BattleInfo(Party* aParty, EnemyParty* aTarget);
     PartyMember* getCurrentActor();
     Enemy* getTarget();
+    EnemyParty* getTargets();
     int getTurn();
     void nextTurn();
     bool victory();
-    void updateText(SDL_Renderer* renderer);
+    void updateAllText(SDL_Renderer* renderer);
+    void updatePartyText(SDL_Renderer* renderer);
+    void setAttack(Attack* anAttack);
+    Attack* getAttack();
 private:
     Party* party;
     PartyMember* current;
     int turn;
-    Enemy* target;
+    EnemyParty* targets;
+    Attack* attack;
 };
 
 #endif /* BattleInfo_h */

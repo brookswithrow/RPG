@@ -14,6 +14,7 @@
 #include "BattleMenu.h"
 #include "AttackMenu.h"
 #include "BattleInfo.h"
+#include "TargetMenu.h"
 #include "Window.h"
 
 class MenuManager {
@@ -28,6 +29,7 @@ private:
     Menu* menu;
     BattleMenu bMenu;
     AttackMenu aMenu;
+    TargetMenu tMenu;
     BattleInfo* info;
 };
 

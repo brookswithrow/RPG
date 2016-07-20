@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "Party.h"
+#include "Party.hpp"
 
 Party::Party() {
     initPartyMemberA();
@@ -42,13 +42,31 @@ void Party::initPartyMemberC() {
     C = PartyMember("Mage", 50, 40, 2, attacks, affinities);
 }
 
-void Party::displayPartyStats(SDL_Renderer *renderer) {
+void Party::displayPartyStats(SDL_Renderer *renderer, int current) {
     SDL_Color black = {0, 0, 0};
-    Text healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), black, renderer, 160, 100);
+    SDL_Color red = {255, 0, 0};
+    Text healthA;
+    Text healthB;
+    Text healthC;
+    if (current == 0) {
+        healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), red, renderer, 160, 100);
+        healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), black, renderer, 350, 100);
+        healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
+    } else if (current == 1) {
+        healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), black, renderer, 160, 100);
+        healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), red, renderer, 350, 100);
+        healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
+    } else if (current == 2) {
+        healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), black, renderer, 160, 100);
+        healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), black, renderer, 350, 100);
+        healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), red, renderer, 540, 100);
+    } else {
+        healthA = Text(A.getName() + " health: " + std::to_string(A.getHP()), black, renderer, 160, 100);
+        healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), black, renderer, 350, 100);
+        healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
+    }
     healthA.update();
-    Text healthB = Text(B.getName() + " health: " + std::to_string(B.getHP()), black, renderer, 350, 100);
     healthB.update();
-    Text healthC = Text(C.getName() + " health: " + std::to_string(C.getHP()), black, renderer, 540, 100);
     healthC.update();
     healthA.clear();
     healthB.clear();

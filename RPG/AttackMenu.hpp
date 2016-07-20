@@ -1,20 +1,20 @@
 //
-//  AttackMenu.h
+//  AttackMenu.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/14/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef AttackMenu_h
-#define AttackMenu_h
+#ifndef AttackMenu_hpp
+#define AttackMenu_hpp
 
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include "Menu.h"
-#include "BattleInfo.h"
-#include "Text.h"
+#include "Menu.hpp"
+#include "BattleInfo.hpp"
+#include "Text.hpp"
 
 class AttackMenu : public Menu {
 public:
@@ -36,4 +36,4 @@ private:
     static int attack(BattleInfo* info, int pos);
 };
 
-#endif /* AttackMenu_h */
+#endif /* AttackMenu_hpp */

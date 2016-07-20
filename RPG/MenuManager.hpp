@@ -1,21 +1,21 @@
 //
-//  MenuManager.h
+//  MenuManager.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/14/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef MenuManager_h
-#define MenuManager_h
+#ifndef MenuManager_hpp
+#define MenuManager_hpp
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "BattleMenu.h"
-#include "AttackMenu.h"
-#include "BattleInfo.h"
-#include "TargetMenu.h"
-#include "Window.h"
+#include "BattleMenu.hpp"
+#include "AttackMenu.hpp"
+#include "BattleInfo.hpp"
+#include "TargetMenu.hpp"
+#include "Window.hpp"
 
 class MenuManager {
 public:
@@ -34,4 +34,4 @@ private:
 };
 
 
-#endif /* MenuManager_h */
+#endif /* MenuManager_hpp */

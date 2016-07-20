@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "BattleMenu.h"
+#include "BattleMenu.hpp"
 
 BattleMenu::BattleMenu() {
     

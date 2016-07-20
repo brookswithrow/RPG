@@ -1,19 +1,19 @@
 //
-//  MenuOption
+//  MenuOption.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/14/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef MenuOption_h
-#define MenuOption_h
+#ifndef MenuOption_hpp
+#define MenuOption_hpp
 
 #include <stdio.h>
 #include <string>
 #include <SDL2/SDL.h>
-#include "BattleInfo.h"
-#include "Text.h"
+#include "BattleInfo.hpp"
+#include "Text.hpp"
 
 class MenuOption {
 public:
@@ -28,4 +28,4 @@ private:
     int pos;
 };
 
-#endif /* MenuOption_h */
+#endif /* MenuOption_hpp */

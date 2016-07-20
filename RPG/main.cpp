@@ -9,11 +9,11 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include "Window.h"
-#include "Text.h"
-#include "EnemyParty.h"
-#include "MenuManager.h"
-#include "Party.h"
+#include "Window.hpp"
+#include "Text.hpp"
+#include "EnemyParty.hpp"
+#include "MenuManager.hpp"
+#include "Party.hpp"
 
 int main(int argc, const char * argv[]) {
     Window window;

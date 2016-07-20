@@ -1,12 +1,12 @@
 //
-//  MenuOption.c
+//  MenuOption.cpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/14/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "MenuOption.h"
+#include "MenuOption.hpp"
 
 MenuOption::MenuOption(std::string aName, int aPos, int (*aAction)(BattleInfo*, int), SDL_Renderer* renderer) {
     name = aName;

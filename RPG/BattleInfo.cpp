@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "BattleInfo.h"
+#include "BattleInfo.hpp"
 
 BattleInfo::BattleInfo(Party* aParty, EnemyParty* aTarget) {
     party = aParty;
@@ -49,12 +49,12 @@ bool BattleInfo::victory() {
 }
 
 void BattleInfo::updateAllText(SDL_Renderer* renderer) {
-    party->displayPartyStats(renderer);
+    party->displayPartyStats(renderer, turn);
     targets->displayPartyStats(renderer);
 }
 
 void BattleInfo::updatePartyText(SDL_Renderer* renderer) {
-    party->displayPartyStats(renderer);
+    party->displayPartyStats(renderer, turn);
 }
 
 void BattleInfo::setAttack(Attack* anAttack) {

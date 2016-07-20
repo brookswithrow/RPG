@@ -1,39 +1,44 @@
 //
-//  Enemy.h
+//  PartyMember.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/6/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Enemy_h
-#define Enemy_h
+#ifndef PartyMember_hpp
+#define PartyMember_hpp
 #include <string>
 #include <vector>
-#include "Attack.h"
+#include "Attack.hpp"
 
-class Enemy {
+class PartyMember {
 public:
-    Enemy();
-    Enemy(std::string aName, int aMaxHP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities);
+    PartyMember();
+    PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities);
     std::string getName();
     int getHP();
     int getMaxHP();
+    int getSP();
+    int getMaxSP();
     int getNumAttacks();
     std::vector<Attack> getAttacks();
     float getAffinity(Type type);
     bool isDead();
-    void takeDamage(Attack attack);
+    void takeDamage(Attack* attack);
     void heal(int health);
     
 private:
     std::string name;
-    int maxHP;
     int hp;
+    int maxHP;
+    int sp;
+    int maxSP;
     int numAttacks;
     std::vector<Attack> attacks;
     std::vector<float> affinities;
     bool dead;
 };
 
-#endif /* Enemy_h */
+
+#endif /* PartyMember_hpp */

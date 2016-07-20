@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "Attack.h"
+#include "Attack.hpp"
 
 Attack::Attack() {
     name = "";

@@ -38,4 +38,4 @@ private:
     Attack* attack;
 };
 
-#endif /* BattleInfo_h */
+#endif /* BattleInfo_hpp */

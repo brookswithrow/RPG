@@ -1,14 +1,14 @@
 //
-//  Attack.h
+//  Attack.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/6/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Attack_h
-#define Attack_h
-#include "Types.h"
+#ifndef Attack_hpp
+#define Attack_hpp
+#include "Types.hpp"
 #include <string>
 
 class Attack {
@@ -25,4 +25,4 @@ private:
     Type type;
 };
 
-#endif /* Attack_h */
+#endif /* Attack_hpp */

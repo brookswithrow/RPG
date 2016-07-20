@@ -1,19 +1,19 @@
 //
-//  EnemyParty.h
+//  EnemyParty.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/17/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef EnemyParty_h
-#define EnemyParty_h
+#ifndef EnemyParty_hpp
+#define EnemyParty_hpp
 
 #include <stdio.h>
 #include <vector>
-#include "Enemy.h"
-#include "Types.h"
-#include "Text.h"
+#include "Enemy.hpp"
+#include "Types.hpp"
+#include "Text.hpp"
 
 class EnemyParty {
 public:
@@ -35,4 +35,4 @@ private:
     Enemy C;
 };
 
-#endif /* EnemyParty_h */
+#endif /* EnemyParty_hpp */

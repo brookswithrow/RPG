@@ -1,16 +1,16 @@
 //
-//  Menu.h
+//  Menu.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/14/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Menu_h
-#define Menu_h
+#ifndef Menu_hpp
+#define Menu_hpp
 #include <SDL2/SDL.h>
 #include <vector>
-#include "MenuOption.h"
+#include "MenuOption.hpp"
 
 class Menu {
 public:
@@ -27,4 +27,4 @@ protected:
     int current;
 };
 
-#endif /* Menu_h */
+#endif /* Menu_hpp */

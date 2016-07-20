@@ -1,13 +1,13 @@
 //
-//  Window.h
+//  Window.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/7/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Window_h
-#define Window_h
+#ifndef Window_hpp
+#define Window_hpp
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
@@ -27,4 +27,4 @@ private:
 };
 
 
-#endif /* Window_h */
+#endif /* Window_hpp */

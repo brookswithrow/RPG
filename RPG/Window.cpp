@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "Window.h"
+#include "Window.hpp"
 
 void Window::init() {
     window = SDL_CreateWindow("RPG", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);

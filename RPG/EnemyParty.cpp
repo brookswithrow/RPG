@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "EnemyParty.h"
+#include "EnemyParty.hpp"
 
 EnemyParty::EnemyParty() {
     initEnemyA();

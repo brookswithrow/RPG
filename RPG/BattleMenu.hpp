@@ -1,21 +1,21 @@
 //
-//  BattleMenu.h
+//  BattleMenu.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/7/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef BattleMenu_h
-#define BattleMenu_h
+#ifndef BattleMenu_hpp
+#define BattleMenu_hpp
 
 #include <stdio.h>
 #include <string>
-#include "Text.h"
-#include "Enemy.h"
-#include "PartyMember.h"
-#include "Attack.h"
-#include "Menu.h"
+#include "Text.hpp"
+#include "Enemy.hpp"
+#include "PartyMember.hpp"
+#include "Attack.hpp"
+#include "Menu.hpp"
 
 class BattleMenu : public Menu {
     
@@ -34,4 +34,4 @@ private:
     void doNothing();
 };
 
-#endif /* BattleMenu_h */
+#endif /* BattleMenu_hpp */

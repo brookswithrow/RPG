@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "AttackMenu.h"
+#include "AttackMenu.hpp"
 
 AttackMenu::AttackMenu() {
     

@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "PartyMember.h"
+#include "PartyMember.hpp"
 
 PartyMember::PartyMember() {
     name = "";

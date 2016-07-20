@@ -1,13 +1,13 @@
 //
-//  Text.h
+//  Text.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/7/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Text_h
-#define Text_h
+#ifndef Text_hpp
+#define Text_hpp
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
@@ -42,4 +42,4 @@ private:
 };
 
 
-#endif /* Text_h */
+#endif /* Text_hpp */

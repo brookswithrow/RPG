@@ -1,13 +1,13 @@
 //
-//  Types.h
+//  Types.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/6/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Types_h
-#define Types_h
+#ifndef Types_hpp
+#define Types_hpp
 
 enum Type {
     null = -1,
@@ -20,4 +20,4 @@ enum Type {
     lightning = 6
 };
 
-#endif /* Types_h */
+#endif /* Types_hpp */

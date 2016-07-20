@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "Enemy.h"
+#include "Enemy.hpp"
 
 Enemy::Enemy() {
     name = "";

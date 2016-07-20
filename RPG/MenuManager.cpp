@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#include "MenuManager.h"
+#include "MenuManager.hpp"
 
 MenuManager::MenuManager(BattleInfo* aInfo, Window* aWindow) {
     info = aInfo;

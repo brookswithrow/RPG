@@ -1,19 +1,19 @@
 //
-//  PartyMemberA.h
+//  PartyMemberA.hpp
 //  RPG
 //
 //  Created by Brooks Withrow on 7/7/16.
 //  Copyright © 2016 Brooks Withrow. All rights reserved.
 //
 
-#ifndef Party_h
-#define Party_h
+#ifndef Party_hpp
+#define Party_hpp
 
 #include <stdio.h>
 #include <vector>
-#include "PartyMember.h"
-#include "Types.h"
-#include "Text.h"
+#include "PartyMember.hpp"
+#include "Types.hpp"
+#include "Text.hpp"
 
 class Party {
 public:
@@ -21,7 +21,7 @@ public:
     void initPartyMemberA();
     void initPartyMemberB();
     void initPartyMemberC();
-    void displayPartyStats(SDL_Renderer* renderer);
+    void displayPartyStats(SDL_Renderer* renderer, int current);
     PartyMember* getPartyMemberA();
     PartyMember* getPartyMemberB();
     PartyMember* getPartyMemberC();
@@ -33,4 +33,4 @@ private:
     PartyMember C;
 };
 
-#endif /* Party_h */
+#endif /* Party_hpp */

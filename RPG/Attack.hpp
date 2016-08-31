@@ -14,15 +14,15 @@
 class Attack {
 public:
     Attack();
-    Attack(std::string aName, int aDamage, Type aType);
+    Attack(std::string aName, int aDamage, DamageType aType);
     std::string getName();
     int getDamage();
-    Type getType();
+    DamageType getType();
 
 private:
     std::string name;
     int damage;
-    Type type;
+    DamageType type;
 };
 
 #endif /* Attack_hpp */

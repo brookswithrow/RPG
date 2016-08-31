@@ -47,7 +47,7 @@ std::vector<Attack> Enemy::getAttacks() {
     return attacks;
 }
 
-float Enemy::getAffinity(Type type) {
+float Enemy::getAffinity(DamageType type) {
     int index = (int)type;
     return affinities[index];
 }

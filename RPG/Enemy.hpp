@@ -21,7 +21,7 @@ public:
     int getMaxHP();
     int getNumAttacks();
     std::vector<Attack> getAttacks();
-    float getAffinity(Type type);
+    float getAffinity(DamageType type);
     bool isDead();
     void takeDamage(Attack attack);
     void heal(int health);

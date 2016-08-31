@@ -20,11 +20,19 @@ PartyMember::PartyMember() {
     affinities = {};
 }
 
-PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities) {
+PartyMember::PartyMember(std::string aName, int aMaxHP, int aMaxSP, int aAttack, int aDefense, int aMagic, int aResistance, int aNumAttacks, std::vector<Attack> aAttacks, std::vector<float> aAffinities) {
     name = aName;
     maxHP = aMaxHP;
     hp = aMaxHP;
     maxSP = aMaxSP;
+    attack = aAttack;
+    currAtt = aAttack;
+    defense = aDefense;
+    currDef = aDefense;
+    magic = aMagic;
+    currMag = aMagic;
+    resistance = aResistance;
+    currRes = aResistance;
     sp = aMaxSP;
     numAttacks = aNumAttacks;
     attacks = aAttacks;
@@ -51,6 +59,82 @@ int PartyMember::getMaxSP() {
     return maxSP;
 }
 
+int PartyMember::getAttack() {
+    return attack;
+}
+
+int PartyMember::getDefense() {
+    return defense;
+}
+
+int PartyMember::getMagic() {
+    return magic;
+}
+
+int PartyMember::getResistance() {
+    return resistance;
+}
+
+int PartyMember::getCurrAtt() {
+    return currAtt;
+}
+
+int PartyMember::getCurrDef() {
+    return currDef;
+}
+
+int PartyMember::getCurrMag() {
+    return currMag;
+}
+
+int PartyMember::getCurrRes() {
+    return currRes;
+}
+
+void PartyMember::buffAttack(int buff) {
+    currAtt += buff;
+    currMag += buff;
+}
+
+void PartyMember::buffDefense(int buff) {
+    currDef += buff;
+    currRes += buff;
+}
+
+void PartyMember::debuffAttack(int debuff) {
+    currAtt -= debuff;
+    currMag -= debuff;
+}
+
+void PartyMember::debuffDefense(int debuff) {
+    currDef -= debuff;
+    currRes -= debuff;
+}
+
+void PartyMember::resetStats() {
+    currAtt = attack;
+    currDef = defense;
+    currMag = magic;
+    currRes = resistance;
+}
+
+void PartyMember::updateStats() {
+    if (currAtt - attack > 0) {
+        currAtt--;
+        currMag--;
+    } else if (currAtt - attack < 0) {
+        currAtt++;
+        currMag++;
+    }
+    if (currDef - defense > 0) {
+        currDef--;
+        currRes--;
+    } else if (currDef - defense < 0) {
+        currDef++;
+        currRes++;
+    }
+}
+
 int PartyMember::getNumAttacks() {
     return numAttacks;
 }
@@ -59,7 +143,7 @@ std::vector<Attack> PartyMember::getAttacks() {
     return attacks;
 }
 
-float PartyMember::getAffinity(Type type) {
+float PartyMember::getAffinity(DamageType type) {
     int index = (int)type;
     return affinities[index];
 }

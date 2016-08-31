@@ -58,7 +58,7 @@ int TargetMenu::select(BattleInfo* info) {
 }
 
 int TargetMenu::attackTarget(BattleInfo* info, int pos) {
-    PartyMember* current = info->getCurrentActor();
+    //PartyMember* current = info->getCurrentActor();
     Enemy* target = info->getTargets()->getEnemy(pos);
     // SP cost here
     target->takeDamage(*info->getAttack());

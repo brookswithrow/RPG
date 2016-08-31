@@ -12,10 +12,10 @@
 Attack::Attack() {
     name = "";
     damage = 0;
-    type = null;
+    type = none;
 }
 
-Attack::Attack(std::string aName, int aDamage, Type aType) {
+Attack::Attack(std::string aName, int aDamage, DamageType aType) {
     name = aName;
     damage = aDamage;
     type = aType;
@@ -31,6 +31,6 @@ int Attack::getDamage() {
 }
 
 
-Type Attack::getType() {
+DamageType Attack::getType() {
     return type;
 }

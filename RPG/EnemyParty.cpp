@@ -20,7 +20,7 @@ void EnemyParty::initEnemyA() {
     attacks.push_back(Attack("Punch", 2, pierce));
     attacks.push_back(Attack("Claw", 3, slash));
     
-    A = Enemy("Shadow", 30, 2, attacks, affinities);
+    A = Enemy("X", 30, 2, attacks, affinities);
 }
 
 void EnemyParty::initEnemyB() {
@@ -29,7 +29,7 @@ void EnemyParty::initEnemyB() {
     attacks.push_back(Attack("Spines", 2, pierce));
     attacks.push_back(Attack("Fire", 3, fire));
     
-    B = Enemy("Spiny", 20, 2, attacks, affinities);
+    B = Enemy("Y", 20, 2, attacks, affinities);
 }
 
 void EnemyParty::initEnemyC() {
@@ -38,7 +38,7 @@ void EnemyParty::initEnemyC() {
     attacks.push_back(Attack("Boulder", 5, crush));
     attacks.push_back(Attack("Ice", 2, ice));
     
-    C = Enemy("Rock Guy", 50, 2, attacks, affinities);
+    C = Enemy("Z", 50, 2, attacks, affinities);
 }
 
 void EnemyParty::displayPartyStats(SDL_Renderer *renderer) {

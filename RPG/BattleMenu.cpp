@@ -26,7 +26,8 @@ void BattleMenu::init() {
     int (*func)(BattleInfo *, int);
     func = &BattleMenu::returnPos;
     MenuOption attack = MenuOption("Attack", 0, func, renderer);
-    MenuOption doNothing = MenuOption("Do Nothing", 1, func, renderer);
+    MenuOption skill = MenuOption("Skill", 1, func, renderer);
+    MenuOption doNothing = MenuOption("Do Nothing", 2, func, renderer);
     options.push_back(attack);
     options.push_back(doNothing);
     current = 0;

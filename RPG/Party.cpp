@@ -21,7 +21,7 @@ void Party::initPartyMemberA() {
     attacks.push_back(Attack("Fire", 4, fire));
     attacks.push_back(Attack("Sword", 6, slash));
     
-    A = PartyMember("DPS", 50, 40, 3, attacks, affinities);
+    A = PartyMember("A", 50, 40, 10, 10, 10, 10, 3, attacks, affinities);
 }
 
 void Party::initPartyMemberB() {
@@ -30,7 +30,7 @@ void Party::initPartyMemberB() {
     attacks.push_back(Attack("Crush", 8, crush));
     attacks.push_back(Attack("Water", 2, water));
     
-    B = PartyMember("Tank", 50, 40, 2, attacks, affinities);
+    B = PartyMember("B", 50, 40, 20, 5, 20, 5, 2, attacks, affinities);
 }
 
 void Party::initPartyMemberC() {
@@ -39,7 +39,7 @@ void Party::initPartyMemberC() {
     attacks.push_back(Attack("Arrow", 1, pierce));
     attacks.push_back(Attack("Lightning", 9, lightning));
     
-    C = PartyMember("Mage", 50, 40, 2, attacks, affinities);
+    C = PartyMember("C", 50, 40, 5, 20, 5, 20, 2, attacks, affinities);
 }
 
 void Party::displayPartyStats(SDL_Renderer *renderer, int current) {
